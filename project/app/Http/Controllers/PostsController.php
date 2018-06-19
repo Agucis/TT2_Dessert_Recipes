@@ -57,7 +57,7 @@ class PostsController extends Controller
     public function show($id)
     {
          $post= Post::find($id);
-        return view ('posts.show')-> with ('post',$post);
+        return view ('posts.show')-> with('post',$post);
     }
 
     /**
@@ -69,7 +69,8 @@ class PostsController extends Controller
     public function edit($id)
     {
       $post= Post::find($id);
-     return view ('posts.edit')-> with ('post',$post);
+     return view ('posts.edit',compact('post','id'));
+
     }
 
     /**
@@ -79,18 +80,13 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-
-      $post = Post::find($id);
+      $post = Post::find($request['id']);
       $post->title=$request->get('title');
       $post->body=$request->get('body');
       $post->save();
       return redirect('posts')->with('success');
-
-
-
-
 
 
     }
@@ -103,6 +99,8 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $post = Post::find($id);
+      $post->delete();
+      return redirect('posts')->with('success','Post Has Been Deleted');
     }
 }

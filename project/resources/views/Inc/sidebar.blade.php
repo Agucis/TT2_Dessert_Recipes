@@ -47,7 +47,8 @@ body {
 
   <div class="sidenav">
    <a href="{{ url('/pancake') }}">Pancakes</a>
-   <a href="{{ url('/posts') }}">Posts</a>
+   <a href="{{ url('/posts') }}">Recipes</a>
+   <a href="{{ url('/posts/create') }}">Add new Recipe</a>
 
    </div>
 
