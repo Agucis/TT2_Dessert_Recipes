@@ -12,8 +12,8 @@ body {
     width: 200px;
     position: fixed;
     z-index: 1;
-    top: 55px;
-    left: 8px;
+    top: 50px;
+    left: 0px;
     background-color: #333;
     overflow-x: hidden;
     padding-top: 20px;
@@ -26,6 +26,7 @@ body {
     color: #818181;
     display: block;
 }
+
 
 .sidenav a:hover {
     color: #f1f1f1;
@@ -43,12 +44,16 @@ body {
 </head>
 <body>
 
-<div class="sidenav">
-  <a href="/pancake">Pancakes</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
+
+  <div class="sidenav">
+   <a href="{{ url('/pancake') }}">Pancakes</a>
+   <a href="{{ url('/posts') }}">Posts</a>
+
+   </div>
+
+ </div>
+
+
 
 </body>
 </html>

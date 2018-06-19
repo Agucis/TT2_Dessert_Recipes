@@ -11,7 +11,7 @@ ul {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
-  
+
 }
 
 li a {
@@ -44,8 +44,9 @@ li a:hover:not(.active) {
 
 
   <ul>
-          <li><a href="{{ url('/home') }}" class = "left">Home</a><li>
+          <li><a href="{{ url('/') }}" class = "left">Home</a><li>
           <li><a href="{{ url('/recipes') }}" class = "left">Recipes</a><li>
+          <li><a href="{{ url('/posts') }}" class = "left">Actual Recipes</a><li>
 
           @if(!Auth::check())
           <li><a  href="{{ route('login') }}" class = "right">Login</a></li>
