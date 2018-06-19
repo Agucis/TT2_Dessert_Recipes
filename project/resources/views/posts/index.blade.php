@@ -11,7 +11,7 @@
 <div class="well">
      <h3> <a href= "/posts/{{$post->id}}">{{$post->title}}</a></h3>
    </div>
-   <small> Written on {{$post->created_at}} </small>
+   <small> Written On {{$post->created_at}}</small>
   @endforeach
 
 
