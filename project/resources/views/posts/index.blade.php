@@ -43,10 +43,7 @@ table
 
 
 <table>
-  <tr>Recipe name</tr>
-    <th>Edit</th>
-    <th>Delete</th>
-  </tr>
+
   <tr>
     <th><h3><a href= "/posts/{{$post->id}}">{{$post->title}} </a></h3></th>
     <th><a href="{{action('PostsController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></th>
