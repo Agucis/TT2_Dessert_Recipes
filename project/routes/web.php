@@ -26,12 +26,14 @@ Route::get('/recipes', function () {
     return view('recipes');
 });
 
-Route::get('/pancake', function () {
-    return view('pancake');
-});
+
 
 Route::get('/posts', function () {
     return view('posts');
+});
+
+Route::get('/about', function () {
+    return view('about');
 });
 
 Route::resource('posts', 'PostsController');
@@ -41,13 +43,13 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 Route::get('/admin', function(){
     echo "Hello Admin";
-})->middleware('auth','admin');
+})->middleware('admin');
 
 
 
 Route::get('/User', function(){
     echo "Hello User";
-})->middleware('auth','User');
+})->middleware('customer');
 
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -56,7 +58,7 @@ Route::get('/User', function(){
 //Route::get('/logout', 'Controller@logout');
 Route::get('/posts', 'PostsController@index')->name('posts.index');
 Route::get('/posts/details/{id}', 'PostsController@details')->name('posts.details');
-Route::get('/posts/add', 'PostsController@add')->name('posts.add');
+Route::get('/posts/create', 'PostsController@create')->name('posts.create')->middleware('customer');;
 Route::post('/posts/insert', 'PostsController@insert')->name('posts.insert');
 Route::get('/posts/edit/{id}', 'PostsController@edit')->name('posts.edit');
 Route::post('/posts/update', 'PostsController@update')->name('posts.update');

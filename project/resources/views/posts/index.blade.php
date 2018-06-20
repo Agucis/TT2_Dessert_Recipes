@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 @extends ('layout.app')
+@extends('inc.sidebar')
 @section ('content')
 
 <style>
@@ -23,27 +24,61 @@ html, body {
 
 }
 
+
+
+
+
+table
+{
+  margin-left: 200px;
+  margin-top: 40px
+
+}
+
 </style>
-
-
-<h1>Dessert Recipes</h1>
+<h1><center>Dessert Recipes</center></h1>
 @if (count($posts)>0)
 
 @foreach($posts as $post)
 
 
-<div class="well">
-     <h3> <a href= "/posts/{{$post->id}}">{{$post->title}}</a></h3>
-     <a href="{{action('PostsController@edit', $post['id'])}}" class="btn btn-warning">Edit</a>
+<table>
+  <tr>Recipe name</tr>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr>
+    <th><h3><a href= "/posts/{{$post->id}}">{{$post->title}} </a></h3></th>
+    <th><a href="{{action('PostsController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></th>
 
-   <form action="{{action('PostsController@destroy', $post['id'])}}" method="post">
+      <th><form action="{{action('PostsController@destroy', $post['id'])}}" method="post">
+             @csrf
+             <input name="_method" type="hidden" value="DELETE">
+           <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </th>
+</tr>
+
+
+</table>
+
+</body>
+</html>
+
+
+
+
+<!------------------------
+     <h3><a href= "/posts/{{$post->id}}">{{$post->title}} </a></h3>
+     <center><a href="{{action('PostsController@edit', $post['id'])}}" class="btn btn-warning">Edit</a></center>
+
+        <form action="{{action('PostsController@destroy', $post['id'])}}" method="post">
                @csrf
                <input name="_method" type="hidden" value="DELETE">
-               <button class="btn btn-danger" type="submit">Delete</button>
+            <center> <button class="btn btn-danger" type="submit">Delete</button></center>
              </form>
+--------------------->
 
-
-   <small> Written on {{$post->created_at}}</small>
   @endforeach
 @else
 <p> no posts</p>

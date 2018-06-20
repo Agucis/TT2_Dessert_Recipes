@@ -9,12 +9,15 @@ use App\Post;
 class PostsController extends Controller
 {
 
+/**
   public function __construct()
     {
+      echo("test");
+      die;
          $this->middleware('auth')->except(['index', 'show']);
          $this->authorizeResource('post');
     }
-
+**/
 
     /**
      * Display a listing of the resource.
@@ -34,6 +37,7 @@ class PostsController extends Controller
      */
     public function create()
     {
+      
         return view ('posts.create');
     }
 

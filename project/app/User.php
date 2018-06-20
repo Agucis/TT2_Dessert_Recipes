@@ -43,15 +43,26 @@ class User extends Authenticatable
         }
 
 
-        function handle($request, Closure $next)
+function handle($request, Closure $next)
 {
-    if (Auth::check() && Auth::user()->role == 'User') {
+    if (Auth::check() && Auth::user()->role == 'User')
+    {
         return $next($request);
     }
-    else {
+    else
+    {
         return redirect('/admin');
     }
 }
+public function hasRole($role)
+	{
+  //  echo("test");
+  //  die;
+		if($this->role === $role)
+			return true;
+		else
+			return false;
+	}
 
 
 }

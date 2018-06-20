@@ -21,12 +21,13 @@
         <div class="row">
           <div class="col-md-12"></div>
           <div class="form-group col-md-4">
-            <label for="title">Title</label>
+            <label for="title">Recipe name</label>
             <input type="text" class="form-control" name="title">
           </div>
+
           <div class="form-group col-md-4">
             <label for="body">Recipe</label>
-            <input type="text" class="form-control" name="body">
+            <input  type="text" class="form-control" name="body">
           </div>
         </div>
         <div class="row">
