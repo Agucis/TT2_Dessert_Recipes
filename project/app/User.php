@@ -19,12 +19,9 @@ class User extends Authenticatable
      */
 
 
-
-
-
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+     protected $fillable = [
+         'name', 'email', 'password','role',
+     ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -44,6 +41,17 @@ class User extends Authenticatable
         {
             return $this->belongsToMany(Role::class);
         }
+
+
+        function handle($request, Closure $next)
+{
+    if (Auth::check() && Auth::user()->role == 'User') {
+        return $next($request);
+    }
+    else {
+        return redirect('/admin');
+    }
+}
 
 
 }

@@ -16,6 +16,15 @@ class Kernel extends ConsoleKernel
         //
     ];
 
+    protected $routeMiddleware = [
+
+
+      'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+
+      'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class
+
+    ];
+
     /**
      * Define the application's command schedule.
      *
@@ -39,4 +48,6 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+
 }

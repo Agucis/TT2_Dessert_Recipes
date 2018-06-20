@@ -39,9 +39,19 @@ Route::resource('posts', 'PostsController');
 
 
 Auth::routes();
+Route::get('/admin', function(){
+    echo "Hello Admin";
+})->middleware('auth','admin');
+
+
+
+Route::get('/User', function(){
+    echo "Hello User";
+})->middleware('auth','User');
+
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admins', 'AdminController@index')->name('admins');
+//Route::get('/admins', 'AdminController@index')->name('admins');
 //Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 //Route::get('/logout', 'Controller@logout');
 Route::get('/posts', 'PostsController@index')->name('posts.index');
